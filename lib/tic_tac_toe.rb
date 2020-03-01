@@ -61,6 +61,33 @@ def current_player(board)
    turn_count(board).even? ? "X" : "O"
   end
   
+def won?(board)
+WIN_COMBINATIONS.detect do |win_combination|
+  location1 = win_combination[0]
+  location2 = win_combination[1]
+  location3 = win_combination[2]
+  board[location1] == board[location2] && board[location2] == board[location3] && board[location1] != " "
+end
+end
 
+def full?(board)
+  board.none? {|position| position == " "}
+end
+
+def draw?(board)
+  full?(board) && !won?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board)
+end
+
+def winner(board)
+  win_combination = won?(board)
+  if win_combination
+    winning_location = win_combination[0]
+    board[winning_location]
+  end
+end
   
 
