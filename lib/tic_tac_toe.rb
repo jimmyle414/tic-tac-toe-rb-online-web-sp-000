@@ -92,6 +92,7 @@ end
 
 def play(board)
   input = gets
+  won?(board) || draw?(board)
 end
 
   
