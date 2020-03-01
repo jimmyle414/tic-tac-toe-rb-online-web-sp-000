@@ -89,5 +89,10 @@ def winner(board)
     board[winning_location]
   end
 end
+
+def play(board)
+  input = gets
+end
+
   
 
